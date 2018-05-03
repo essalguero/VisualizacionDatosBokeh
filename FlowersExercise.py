@@ -35,7 +35,8 @@ for rowVarName in list(df.columns)[0:4]:
     for columnVarName in list(reversed(list(df.columns)[0:4])):
         #print(columnVarName)
         currentFigure = figure(plot_width = 200, plot_height = 200)
-        currentFigure.circle(columnVarName, rowVarName, size = 10, source = df, color = {'field' : 'species', 'transform': color_mapper} )
+        currentFigure.circle(columnVarName, rowVarName, size = 6, alpha = 0.5,
+                             source = df, color = {'field' : 'species', 'transform': color_mapper} )
         
         currentFigure.min_border_left = 10
         currentFigure.min_border_top = 10
