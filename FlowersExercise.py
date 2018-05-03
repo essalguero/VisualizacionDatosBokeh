@@ -37,7 +37,10 @@ for rowVarName in list(df.columns)[0:4]:
         currentFigure = figure(plot_width = 200, plot_height = 200)
         currentFigure.circle(columnVarName, rowVarName, size = 10, source = df, color = {'field' : 'species', 'transform': color_mapper} )
         
-        
+        currentFigure.min_border_left = 10
+        currentFigure.min_border_top = 10
+        currentFigure.min_border_right = 10
+        currentFigure.min_border_bottom = 10
         
         if (rowVarName == columnVarName):
             #currentFigure.title.text = rowVarName
@@ -56,9 +59,15 @@ for rowVarName in list(df.columns)[0:4]:
         
         if row != 0:
             currentFigure.xaxis.visible = False
+        else:
+            currentFigure.plot_height += 30
+            currentFigure.min_border_bottom += 30
             
         if column != 1:
             currentFigure.yaxis.visible = False
+        else:
+            currentFigure.plot_width += 30
+            currentFigure.min_border_left += 30
             
         rowList.append(currentFigure)
         column = column + 1
